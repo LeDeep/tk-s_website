@@ -1,27 +1,21 @@
-<% if @user.errors.any? %>
- <div class="alert alert-error">
-   <h3>Please correct these problems:</h3>
-   <ul>
-     <% @user.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-     <% end %>
-   </ul>
- </div>
-<% end %>   
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
 
-<%= form_for @user do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
 
-  <%= f.label :password_confirmation, "Confirmation" %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-<% end %>
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

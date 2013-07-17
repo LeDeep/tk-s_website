@@ -6,21 +6,19 @@ describe UsersController do
 
     before { visit signup_path }
 
-    let(:submit) { "Create my account" }
 
     context "with invalid information" do
       it "should not create a user" do
-        expect { click_button submit }.not_to change(User, :count)
+        expect { click_button "Create my account" }.not_to change(User, :count)
       end
     end
 
     context "with valid information" do
-      before do
-       let(:user) { FactoryGirl.create :user) }
-      end
+       let(:user) { FactoryGirl.create(:user) }
+     
 
       it "should create a user" do
-        expect { click_button submit }.to change(User, :count).by(1)
+        expect { click_button "Create my account" }.to change(User, :count).by(1)
       end
     end
   end
