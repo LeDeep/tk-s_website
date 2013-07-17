@@ -14,7 +14,6 @@ describe User do
     it {should validate_presence_of :email}
     it {should validate_presence_of :name}
     it {should validate_presence_of :password}
-    it {should validate_presence_of :password_confirmation}
     it {should allow_value("password").for :password}
     it {should_not allow_value("stuff").for :password}
     it {should allow_value("foo@bar.com").for :email}
