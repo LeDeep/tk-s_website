@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>    </th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+    <% @user.each do |user| %>
+      <tr>
+        <td> <%= gravatar_for user %></td>
+        <td><%= user.name%></td>
+        <td><%= user.email%></td>
+      </tr>
+    <% end %>
+</table>
+
+ 
+  
