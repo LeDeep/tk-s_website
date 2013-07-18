@@ -1,3 +1,5 @@
 Website for a family friend. Website will be a place where family members, spread out in the United States, Thailand, England, Australia, and China, can connect. The website will have authentication for users, and ability for users to post blog updates and write to a message board.
 
-Built with Ruby on Rails, CSS, HTML, Twitter-Bootstrap, PostgreSQL, and jQuery
+Built with Ruby on Rails, CSS, HTML, Twitter-Bootstrap, PostgreSQL, and jQuery.
+
+Decided to use Gravatar for profile images, since it doesn't require any uploading or storage. Site will include link to shared Shutterfly account. Will probably add a few images to home and about pages.
