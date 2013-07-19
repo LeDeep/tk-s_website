@@ -2,4 +2,6 @@ Website for a family friend. Website will be a place where family members, sprea
 
 Built with Ruby on Rails, CSS, HTML, Twitter-Bootstrap, PostgreSQL, and jQuery.
 
+Built authentication from scratch instead of using Devise, like I have on most other projects. Main reason for this is to get a clearer picture of how authentication works behind the scenes.
+
 Decided to use Gravatar for profile images, since it doesn't require any uploading or storage. Site will include link to shared Shutterfly account. Will probably add a few images to home and about pages.
