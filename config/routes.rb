@@ -2,7 +2,7 @@ TksWebsite::Application.routes.draw do
   root to: "static_pages#home"
 
   resources :users
-
+  resources :profiles
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup',  to: 'users#new'
