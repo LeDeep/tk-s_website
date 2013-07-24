@@ -1,0 +1,9 @@
+
+<ul class="unstyled">
+  <li><strong>Name:</strong> <%= @profile.name %></li>
+  <li><strong>Email:</strong> <%= @profile.email %></li>
+  <li><strong>Bio:</strong> <%= @profile.bio %></li>
+  <li><strong>Favorite Family Memory:</strong> <%= @profile.favorite_family_memory %></li>
+</ul>
+
+<p><%= link_to 'Edit profile', edit_profile_path, :class => 'btn' %></p>
