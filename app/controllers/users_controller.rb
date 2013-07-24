@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome #{@user.name.capitalize}! Please complete your profile."
-      redirect_to edit_profile_path(current_user)
+      redirect_to profile_path(current_user)
     else
       render 'new'
     end
