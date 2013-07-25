@@ -26,4 +26,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      sign_in @user
+      flash[:success] = "You have successfully updated your information!"
+      redirect_to root_path
+    else
+      render 'new'
+    end
+  end
+
 end

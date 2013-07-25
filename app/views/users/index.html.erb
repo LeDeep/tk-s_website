@@ -4,6 +4,8 @@
       <th>    </th>
       <th>Name</th>
       <th>Email</th>
+      <th>Bio</th>
+      <th>Favorite Family Memory</th>
     </tr>
   </thead>
     <% @user.each do |user| %>
@@ -11,6 +13,8 @@
         <td> <%= gravatar_for user %></td>
         <td><%= user.name%></td>
         <td><%= user.email%></td>
+        <td><%= user.profile.bio%></td>
+        <td><%= user.profile.favorite_family_memory%></td>
       </tr>
     <% end %>
 </table>
