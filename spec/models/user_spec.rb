@@ -21,6 +21,17 @@ describe User do
     it {should validate_uniqueness_of :email}
   end
 
+  context 'associations' do 
+    it {should have_one :profile}
+  end
+
+  context 'callbacks' do 
+    it 'creates a profile after the user is created' do 
+      user = FactoryGirl.create(:user)
+      user.profile.should_not be_nil
+    end
+  end
+
 
 
 end
