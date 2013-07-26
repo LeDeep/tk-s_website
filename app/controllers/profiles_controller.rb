@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
       flash[:success] = "You have successfully updated your profile!"
       redirect_to profile_path
     else
-      render 'new'
+      render :edit
     end
   end
 
