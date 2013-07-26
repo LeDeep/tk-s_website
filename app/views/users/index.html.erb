@@ -3,7 +3,10 @@
     <tr>
       <th>    </th>
       <th>Name</th>
+      <th>Age</th>
       <th>Email</th>
+      <th>Location</th>
+      <th>Birthday</th>
       <th>Bio</th>
       <th>Favorite Family Memory</th>
     </tr>
@@ -12,7 +15,10 @@
       <tr>
         <td> <%= gravatar_for user %></td>
         <td><%= user.name%></td>
-        <td><%= user.email%></td>
+        <td><%= user.profile.age%></td>
+        <td><%= mail_to user.email%></td>
+        <td><%= user.profile.location%></td>
+        <td><%= user.profile.birthday%></td>
         <td><%= user.profile.bio%></td>
         <td><%= user.profile.favorite_family_memory%></td>
       </tr>

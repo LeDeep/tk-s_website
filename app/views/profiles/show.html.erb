@@ -3,6 +3,8 @@
   <td><%= gravatar_for current_user %></td>
   <li><strong>Name:</strong> <%= current_user.name %></li>
   <li><strong>Email:</strong> <%= current_user.email %></li>
+  <li><strong>Birthday:</strong> <%= @profile.birthday %></li>
+  <li><strong>Location:</strong> <%= @profile.location %></li>
   <li><strong>Bio:</strong> <%= @profile.bio %></li>
   <li><strong>Favorite Family Memory:</strong> <%= @profile.favorite_family_memory %></li>
 </ul>
