@@ -18,7 +18,4 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def index
-    @profile = Profile.all
-  end
 end
