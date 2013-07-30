@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome #{@user.name.capitalize}! Please complete your profile."
       redirect_to profile_path(current_user)
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       flash[:success] = "You have successfully updated your information!"
       redirect_to root_path
     else
-      render 'new'
+      render :new
     end
   end
 

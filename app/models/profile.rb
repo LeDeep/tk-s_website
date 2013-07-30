@@ -6,7 +6,11 @@ class Profile < ActiveRecord::Base
   belongs_to :user
 
   def age
-    Date.today.year - self.birthday.try(:year)
+    if self.birthday != nil
+      Date.today.year - self.birthday.try(:year)
+    else
+      ''
+    end
   end
 end
 
