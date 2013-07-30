@@ -26,12 +26,14 @@ describe UsersController do
   end
 
   context 'POST create' do 
+    let(:user) {FactoryGirl.build :user}
+
     context 'with valid parameters' do 
-      before {post :create, {:name => user.name}}
+      before {post :create, user}
 
 
       it 'creates a new user' do 
-        expect {post :create, {:name => user.name}}.to change(User, :count).by(1)
+        expect {post :create, user}.to change(User, :count).by 1
       end
 
 

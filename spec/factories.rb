@@ -10,7 +10,7 @@ FactoryGirl.define do
     bio "This is my bio"
     favorite_family_memory "That one time"
     location "San Francisco, CA"
-    birthday "2013-01-01"
+    birthday "2013-1-1"
     user_id 1
   end
 end
