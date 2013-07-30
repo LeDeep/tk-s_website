@@ -23,13 +23,10 @@ describe ProfilesController do
   end
 
   context 'PUT update' do 
-    let(:valid_attributes) {{:location => 'San Francisco, CA'}}
-    let(:valid_parameters) {{:id => profile.id, :profile => valid_attributes}}
-
-    before {put :update, valid_parameters}
+    before {put :update, {:id => profile.id, :location => profile.location}}
 
     it 'updates the users profile' do 
-      Profile.find(profile.id).location.should eq valid_attributes[:location]
+      Profile.find(profile.id).location.should eq profile.location
     end
 
    it {should redirect_to profile_path(profile.id)}

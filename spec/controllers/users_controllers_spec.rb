@@ -27,23 +27,19 @@ describe UsersController do
 
   context 'POST create' do 
     context 'with valid parameters' do 
-      let(:valid_attributes) {{:name => 'Deep'}}
-      let(:valid_parameters) {{:user => valid_attributes}}
+      before {post :create, {:name => user.name}}
+
 
       it 'creates a new user' do 
-        expect {post :create, valid_parameters}.to change(User, :count).by(1)
+        expect {post :create, {:name => user.name}}.to change(User, :count).by(1)
       end
 
-      before {post :create, valid_parameters}
 
       it {should respond_with 200}
     end
 
     context 'with invalid parameters' do 
-      let(:invalid_attributes) {{:name => ''}}
-      let(:invalid_parameters) {{:user => invalid_attributes}}
-
-      before {post :create, invalid_parameters}
+      before {post :create, {:name => ''}}
 
       it {should render_template :new}
     end
@@ -63,13 +59,10 @@ describe UsersController do
 
   context 'PUT update' do 
     context 'with valid parameters' do 
-      let(:valid_attributes) {{:name => 'Deep'}}
-      let(:valid_parameters) {{:id => user.id, :user => valid_attributes}}
-
-      before {put :update, valid_parameters}
+      before {put :update, {:id => user.id, :name => user.name}}
 
       it 'updates the user' do 
-        User.find(user.id).name.should eq valid_attributes[:name]
+        User.find(user.id).name.should eq user.name
       end
 
       it {should respond_with 200}
