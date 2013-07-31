@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   before_save :create_remember_token
 
   validates :name, presence: true
-  validates :email, presence: true, format: {with: /\w(\w*|\.*)@\w+.\w+/i},
+  validates :email, presence: true, format: {with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/},
             uniqueness: {case_sensitive: false}
 
  
