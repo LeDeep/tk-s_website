@@ -26,10 +26,10 @@ describe UsersController do
   end
 
   context 'POST create' do 
-    let(:user) {FactoryGirl.build :user}
 
     context 'with valid parameters' do 
       before {post :create, user}
+      let(:user) {FactoryGirl.build :user}
 
 
       it 'creates a new user' do 
