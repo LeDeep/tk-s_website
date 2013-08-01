@@ -1,4 +1,4 @@
-
+<%= provide(:title, current_user.name) %>
 <ul class="unstyled">
   <td><%= gravatar_for current_user %></td>
   <li><strong>Name:</strong> <%= current_user.name %></li>
