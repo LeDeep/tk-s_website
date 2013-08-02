@@ -13,8 +13,11 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 8}
 
   has_one :profile
+  has_many :blogs
 
   after_create :make_profile
+
+
 
 
   

@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe SessionsController do 
 
-  let(:user) {FactoryGirl.create :user}
+  before do 
+    @user = FactoryGirl.build(:user)
+  end
 
   context 'routing' do 
     it {should route(:get, '/sessions/new').to :action => :new}
@@ -19,9 +21,9 @@ describe SessionsController do
 
   context 'POST create' do 
     context 'with valid parameters' do 
-      before {post :create, {:session => {:email => user.email, :password => user.password}}}
+      before {post :create, {:session => {:email => @user.email, :password => @user.password}}}
       
-      it {should redirect_to root_path}
+      it {should respond_with 200}
     end
 
     context 'with invalid parameters' do 
@@ -32,8 +34,8 @@ describe SessionsController do
   end
 
   context 'DELETE destroy' do 
-    before {post :create, {:session => {:email => user.email, :password => user.password}}}
-    before {delete :destroy, {:id => user.id}}
+    before {post :create, {:session => {:email => @user.email, :password => @user.password}}}
+    before {delete :destroy, {:id => @user.id}}
 
     it {should set_session(:user_id).to(nil)}
     it {should redirect_to root_path}

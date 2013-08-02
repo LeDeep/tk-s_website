@@ -1,5 +1,22 @@
 require 'spec_helper'
 
 describe Blog do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'accessibility' do 
+    it {should allow_mass_assignment_of :content}
+    it {should allow_mass_assignment_of :title}
+  end
+
+  context 'validations' do 
+    it {should validate_presence_of :user_id}
+    it {should validate_presence_of :title}
+    it {should allow_value("Today's Blog").for :title}
+    it {should_not allow_value("Today's Blog" * 100).for :title}
+    it {should validate_presence_of :content}
+
+  end
+
+  context 'associations' do 
+    it {should belong_to :user}
+  end
+
 end

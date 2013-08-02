@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe User do
 
+  before do 
+    @user = FactoryGirl.create(:user)
+  end
+
   context 'accessibility' do 
     it {should allow_mass_assignment_of :email}
     it {should allow_mass_assignment_of :name}
@@ -23,15 +27,24 @@ describe User do
 
   context 'associations' do 
     it {should have_one :profile}
+    it {should have_many :blogs}
   end
 
   context 'callbacks' do 
     it 'creates a profile after the user is created' do 
-      user = FactoryGirl.create(:user)
-      user.profile.should_not be_nil
+      @user.profile.should_not be_nil
     end
   end
 
+  context 'blog ordering' do 
 
+    let(:first_blog) {FactoryGirl.create(:blog, user: @user, created_at: 1.day.ago)}
+    let(:second_blog) {FactoryGirl.create(:blog, user: @user, created_at: 1.hour.ago)}
+  
+    
+    it 'orders blogs in descending order from most recent to oldest' do 
+      @user.blogs.should == [second_blog, first_blog]
+    end
+  end
 
 end
