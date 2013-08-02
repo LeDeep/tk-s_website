@@ -13,7 +13,7 @@
       <th>Favorite Family Memory</th>
     </tr>
   </thead>
-    <% @user.each do |user| %>
+    <% @users.each do |user| %>
       <tr>
         <td> <%= gravatar_for user %></td>
         <td><%= link_to user.name, user%></td>
@@ -26,6 +26,8 @@
       </tr>
     <% end %>
 </table>
+
+<%= will_paginate %>
 
  
   
