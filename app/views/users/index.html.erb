@@ -16,7 +16,7 @@
     <% @user.each do |user| %>
       <tr>
         <td> <%= gravatar_for user %></td>
-        <td><%= user.name%></td>
+        <td><%= link_to user.name, user%></td>
         <td><%= user.profile.age%></td>
         <td><%= mail_to user.email%></td>
         <td><%= user.profile.location%></td>
