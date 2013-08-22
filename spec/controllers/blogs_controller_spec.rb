@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe BlogsController do
 
+  let(:user) { FactoryGirl.create(:user)}
 
 
   context "routing" do
@@ -15,7 +16,7 @@ describe BlogsController do
   end
 
   context 'submitting to the destroy action' do 
-    before { delete blog_path(FactoryGirl.build(:blog))}
+    before { delete blog_path(FactoryGirl.create(:blog))}
     specify { response.should redirect_to(signin_path)}
   end
 end
