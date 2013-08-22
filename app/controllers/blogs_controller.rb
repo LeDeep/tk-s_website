@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
 
   def create
-    @blog = current_user.blog.build(params[:blog])
+    @blog = current_user.blogs.build(params[:blog])
     if @blog.save
       flash[:success] = "Your blog has been posted."
       redirect_to root_url
