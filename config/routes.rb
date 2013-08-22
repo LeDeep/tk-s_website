@@ -4,6 +4,7 @@ TksWebsite::Application.routes.draw do
   resources :users
   resources :profiles
   resources :sessions, only: [:new, :create, :destroy]
+  resources :blogs, only: [:create, :destroy]
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

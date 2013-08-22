@@ -1,7 +1,7 @@
 class Blog < ActiveRecord::Base
   attr_accessible :content, :title
   validates :user_id, :content, presence: true
-  validates :title, presence: true, length: {maximum: 140}
+  validates :title, presence: true, length: {maximum: 160}
 
   belongs_to :user
 
