@@ -64,8 +64,9 @@ feature 'sign out' do
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
     click_button "Sign in"
-    click_on "#{user.name}"
-    click_link "Sign out"
+    within(".dropdown-menu") do 
+      click_on "Sign out"
+    end
     page.should have_content "You have successfully signed out."
   end
 end

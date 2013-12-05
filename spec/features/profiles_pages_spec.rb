@@ -24,9 +24,10 @@ feature 'Edit Profile' do
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
     click_button "Sign in"
-    click_on "#{user.name}"
-    click_on "View Profile"
-    click_button "Edit Profile"
+    within(".dropdown-menu") do 
+      click_on "View Profile"
+    end
+    click_on "Edit Profile"
     fill_in "Birthday", :with => profile.birthday
     fill_in "Location", :with => profile.location
     fill_in "Bio", :with => profile.bio
@@ -44,7 +45,7 @@ feature 'Edit Settings' do
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
     click_button "Sign in"
-    click_on "#{user.name}"
+    first(:link, "#{user.name}").click
     click_on "Settings"
     fill_in "Name", :with => user.name
     fill_in "Email", :with => user.email
